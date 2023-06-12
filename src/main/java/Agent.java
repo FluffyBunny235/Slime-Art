@@ -18,7 +18,8 @@ public class Agent {
         y = y+Math.sin(direction)*Main.speed;
         checkBounds();
         Main.display[(int)x][(int)y] = Main.slime.get(type);
-        Main.scents[(int)x][(int)y][type] +=20;
+        //Main.scents[(int)x][(int)y][type] +=20;
+        Main.scents[(int)x][(int)y][type] = 100;
     }
     private void checkBounds() {
         if (x < 0) {

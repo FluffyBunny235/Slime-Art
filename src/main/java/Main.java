@@ -48,7 +48,7 @@ public class Main {
                 b = (int)(b/pixelsUsed);
                 newDisplay[x][y] = new Color(r,g,b);
                 for (int i = 0; i < slime.size(); i++) {
-                    scents[x][y][i] -= 1;
+                    scents[x][y][i] /= 2;
                 }
             }
         }
