@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Agent {
@@ -18,8 +17,8 @@ public class Agent {
         y = y+Math.sin(direction)*Main.speed;
         checkBounds();
         Main.display[(int)x][(int)y] = Main.slime.get(type);
-        //Main.scents[(int)x][(int)y][type] +=20;
-        Main.scents[(int)x][(int)y][type] = 100;
+        Main.scents[(int)x][(int)y][type] +=20;
+        //Main.scents[(int)x][(int)y][type] = 100;
     }
     private void checkBounds() {
         if (x < 0) {
@@ -44,19 +43,19 @@ public class Agent {
         ArrayList<Double> viableAngles = new ArrayList<>(3);
         ArrayList<Integer> sums = new ArrayList<Integer>(3);
         if ((int)(x+Math.cos(direction+3.14/8)*3) >= 0 && (int)(x+Math.cos(direction+3.14/8)*3) < Main.WIDTH
-        && (int)(y + Math.sin(direction + 3.14 / 8) * 3) > 0 && (int)(y + Math.sin(direction + 3.14 / 8) * 3) < Main.HEIGHT) {
+                && (int)(y + Math.sin(direction + 3.14 / 8) * 3) > 0 && (int)(y + Math.sin(direction + 3.14 / 8) * 3) < Main.HEIGHT) {
             int s = sum(Main.scents[(int)(x+Math.cos(direction+3.14/8)*3)][(int)(y + Math.sin(direction + 3.14 / 8) * 3)]);
             sums.add(s);
             viableAngles.add(direction+3.14/8);
         }
         if ((int)(x+Math.cos(direction)*3) >= 0 && (int)(x+Math.cos(direction)*3) < Main.WIDTH
-        && (int)(y + Math.sin(direction) * 3) > 0 && (int)(y + Math.sin(direction) * 3) < Main.HEIGHT){
+                && (int)(y + Math.sin(direction) * 3) > 0 && (int)(y + Math.sin(direction) * 3) < Main.HEIGHT){
             int s = sum(Main.scents[(int)(x+Math.cos(direction)*3)][(int)(y + Math.sin(direction) * 3)]);
             sums.add(s);
             viableAngles.add(direction);
         }
         if ((int)(x+Math.cos(direction-3.14/8)*3) >= 0 && (int)(x+Math.cos(direction-3.14/8)*3) < Main.WIDTH
-        && (int)(y + Math.sin(direction - 3.14 / 8) * 3) > 0 && (int)(y + Math.sin(direction - 3.14 / 8) * 3) < Main.HEIGHT){
+                && (int)(y + Math.sin(direction - 3.14 / 8) * 3) > 0 && (int)(y + Math.sin(direction - 3.14 / 8) * 3) < Main.HEIGHT){
             int s = sum(Main.scents[(int)(x+Math.cos(direction-3.14/8)*3)][(int)(y + Math.sin(direction - 3.14 / 8) * 3)]);
             sums.add(s);
             viableAngles.add(direction-3.14/8);

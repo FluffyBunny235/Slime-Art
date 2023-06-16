@@ -1,7 +1,5 @@
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.TimerTask;
 
 public class Main {
     public static int WIDTH;
@@ -22,10 +20,10 @@ public class Main {
         Color[][] newDisplay = new Color[display.length][display[0].length];
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
-                double pixelsUsed = 1;
-                int r = background.getRed();
-                int g = background.getGreen();
-                int b = background.getBlue();
+                double pixelsUsed = 3;
+                int r = background.getRed()*3;
+                int g = background.getGreen()*3;
+                int b = background.getBlue()*3;
                 for (int i = -1; i <= 1; i++) {
                     for (int k = -1; k <=1; k++) {
                         if (isInBounds(x+i, y+k)) {
@@ -49,6 +47,8 @@ public class Main {
                 newDisplay[x][y] = new Color(r,g,b);
                 for (int i = 0; i < slime.size(); i++) {
                     scents[x][y][i] /= 2;
+                    //scents[x][y][i] -= 4;
+                    //if (scents[x][y][i] < 0) {scents[x][y][i] = 0;}
                 }
             }
         }

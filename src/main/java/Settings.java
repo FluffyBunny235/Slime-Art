@@ -90,13 +90,13 @@ public class Settings implements ActionListener {
             Main.HEIGHT = Integer.parseInt(heightF.getText());
             Main.WIDTH = Integer.parseInt(widthF.getText());
             Main.display = new Color[Main.WIDTH][Main.HEIGHT];
-            Main.scents = new short[Main.WIDTH][Main.HEIGHT][Main.slime.size()];
             Main.numAgents = Integer.parseInt(numAgentsF.getText());
             //Main.speed = Integer.parseInt(speedF.getText());
             Main.agents = new Agent[Main.numAgents];
             if (Main.slime.size() == 0) {
                 Main.slime.add(Color.CYAN);
             }
+            Main.scents = new short[Main.WIDTH][Main.HEIGHT][Main.slime.size()];
             for (int i = 0; i < Main.numAgents; i++) {
                 double angle = Math.random()*2*3.141592;
                 if (spawnMode.equals("Point")) {
